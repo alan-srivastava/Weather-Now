@@ -1,0 +1,229 @@
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.App h1 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+/* Weather Form styles */
+.weather-form-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.weather-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-container {
+  position: relative;
+}
+
+.city-input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  width: 250px;
+  outline: none;
+  background: white;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.suggestions-list li {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #333;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.suggestions-list li:last-child {
+  border-bottom: none;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestion-detail {
+  font-size: 0.8em;
+  color: #666;
+  margin-left: 5px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: #ff6b6b;
+  margin-top: 10px;
+}
+
+.loading-spinner {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Weather Card styles */
+.weather-card {
+  /* Make the card light so text is readable against the dark background */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 1.75rem;
+  margin: 0 auto;
+  max-width: 420px;
+  color: #0b2540; /* dark text for readability */
+  box-shadow: 0 8px 20px rgba(10, 25, 45, 0.25);
+}
+
+.weather-card h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0b2540;
+}
+
+.weather-info {
+  margin-top: 0.75rem;
+}
+
+.temperature {
+  font-size: 3rem;
+  margin: 0.75rem 0;
+  color: #0b2540;
+}
+
+.temp-value {
+  font-weight: 700;
+}
+
+.temp-unit {
+  font-size: 1.25rem;
+  vertical-align: super;
+  color: #274b71;
+}
+
+.condition {
+  font-size: 1.2rem;
+  margin: 0.75rem 0;
+  color: #274b71;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #123145;
+}
+
+.detail-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+}
+
+.extra-info {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  /* Use the same readable dark color as other card text */
+  color: #123145;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.extra-info p {
+  margin: 0.25rem 0;
+  color: inherit; /* ensure paragraphs inherit the dark color */
+  font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .city-input {
+    width: 150px;
+  }
+  
+  .weather-card {
+    padding: 1rem;
+    margin: 0 1rem;
+  }
+  
+  .temperature {
+    font-size: 2.5rem;
+  }
+  
+  .condition {
+    font-size: 1.2rem;
+  }
+  
+  .weather-details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
